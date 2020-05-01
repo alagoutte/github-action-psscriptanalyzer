@@ -47,6 +47,7 @@ Write-Output $comment
 $ghEvent     = Get-Content -Path $env:GITHUB_EVENT_PATH | ConvertFrom-Json -Depth 30
 $commentsUrl = $ghEvent.pull_request.comments_url
 
+Write-Output $commentsUrl
 # Send comment back to PR if any issues were found
 if ($commentsUrl -and $env:INPUT_SENDCOMMENT -and ($errors.Count -gt 0 -or $warnings.Count -gt 0 -or $infos.Count -gt 0)) {
     $params = @{
