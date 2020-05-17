@@ -49,7 +49,7 @@ $commentsUrl = $ghEvent.pull_request.comments_url
 
 Write-Output $commentsUrl
 # Send comment back to PR if any issues were found
-if ($commentsUrl -and $env:INPUT_SENDCOMMENT -and ($errors.Count -gt 0 -or $warnings.Count -gt 0 -or $infos.Count -gt 0)) {
+if ($commentsUrl -and ($env:INPUT_SENDCOMMENT -eq '$true') -and ($errors.Count -gt 0 -or $warnings.Count -gt 0 -or $infos.Count -gt 0)) {
     $params = @{
         Uri = $commentsUrl
         Method = 'Post'
