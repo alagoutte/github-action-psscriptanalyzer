@@ -66,9 +66,16 @@ $exitCode = 0
 Write-Output "Debug"
 Write-Output $env:INPUT_FAILONERRORS
 if ($env:INPUT_FAILONERRORS  -eq 'true' -or $env:INPUT_FAILONERRORS  -eq 1) { $exitCode += $errors.Count}
+Write-output $exitCode
+Write-output $errors.Count
 if ($env:INPUT_FAILONWARNING -eq 'true' -or $env:INPUT_FAILONWARNING -eq 1) { $exitCode += $warnings.Count}
+Write-output $exitCode
+Write-output $warnings.Count
 if ($env:INPUT_FAILONINFOS   -eq 'true' -or $env:INPUT_FAILONINFOS   -eq 1) { $exitCode += $infos.Count}
 Write-output $exitCode
+Write-output $infos.Count
 if($exitCode){
     throw "there is error"
 }
+exit 1
+
