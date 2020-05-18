@@ -64,7 +64,7 @@ if ($commentsUrl -and ($env:INPUT_SENDCOMMENT -eq '$true') -and ($errors.Count -
 
 $exitCode = 0
 Write-Output "Debug"
-Wirte-Output $env:INPUT_FAILONERRORS
+Write-Output $env:INPUT_FAILONERRORS
 if ($env:INPUT_FAILONERRORS  -eq 'true' -or $env:INPUT_FAILONERRORS  -eq 1) { $exitCode += $errors.Count}
 if ($env:INPUT_FAILONWARNING -eq 'true' -or $env:INPUT_FAILONWARNING -eq 1) { $exitCode += $warnings.Count}
 if ($env:INPUT_FAILONINFOS   -eq 'true' -or $env:INPUT_FAILONINFOS   -eq 1) { $exitCode += $infos.Count}
