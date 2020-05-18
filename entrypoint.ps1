@@ -66,4 +66,7 @@ $exitCode = 0
 if ($env:INPUT_FAILONERRORS  -eq 'true' -or $env:INPUT_FAILONERRORS  -eq 1) { $exitCode += $errors.Count}
 if ($env:INPUT_FAILONWARNING -eq 'true' -or $env:INPUT_FAILONWARNING -eq 1) { $exitCode += $warnings.Count}
 if ($env:INPUT_FAILONINFOS   -eq 'true' -or $env:INPUT_FAILONINFOS   -eq 1) { $exitCode += $infos.Count}
-exit $exitCode
+Write_ouput $exitCode
+if($exitCode){
+    throw "there is error"
+}
