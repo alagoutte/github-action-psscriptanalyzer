@@ -1,9 +1,9 @@
-FROM mcr.microsoft.com/powershell:7.5-ubuntu-24.04 as base
+FROM mcr.microsoft.com/powershell:7.5-ubuntu-24.04 AS base
 SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 RUN Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; \
     Install-Module PSScriptAnalyzer -RequiredVersion 1.24.0 -Scope AllUsers -Repository PSGallery
 
-FROM base as analyzer
+FROM base AS analyzer
 LABEL "com.github.actions.name"         = "PSScriptAnalyzer"
 LABEL "com.github.actions.description"  = "Run PSScriptAnalyzer tests"
 LABEL "com.github.actions.icon"="check-square"
