@@ -4,16 +4,16 @@ RUN Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; \
     Install-Module PSScriptAnalyzer -RequiredVersion 1.24.0 -Scope AllUsers -Repository PSGallery
 
 FROM base AS analyzer
-LABEL "com.github.actions.name"         = "PSScriptAnalyzer"
-LABEL "com.github.actions.description"  = "Run PSScriptAnalyzer tests"
+LABEL "com.github.actions.name"="PSScriptAnalyzer"
+LABEL "com.github.actions.description"="Run PSScriptAnalyzer tests"
 LABEL "com.github.actions.icon"="check-square"
 LABEL "com.github.actions.color"="green"
 
-LABEL "name"       = "github-action-psscriptanalyzer"
-LABEL "version"    = "2.4.0"
-LABEL "repository" = "https://github.com/devblackops/github-action-psscriptanalyzer"
-LABEL "homepage"   = "https://github.com/PowerShell/PSScriptAnalyzer"
-LABEL "maintainer" = "Brandon Olin <brandon@devblackops.io>"
+LABEL "name"="github-action-psscriptanalyzer"
+LABEL "version"="2.4.0"
+LABEL "repository"="https://github.com/devblackops/github-action-psscriptanalyzer"
+LABEL "homepage"="https://github.com/PowerShell/PSScriptAnalyzer"
+LABEL "maintainer"="Brandon Olin <brandon@devblackops.io>"
 
 ADD entrypoint.ps1  /entrypoint.ps1
 
